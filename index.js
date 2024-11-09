@@ -1,0 +1,17 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const app = express();
+
+mongoose
+  .connect(
+    "mongodb+srv://usman:pXQDyMjTaLqETO3m@cluster0.02x3h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => {
+    console.log("database connected");
+    app.listen(3000, () => {
+      console.log("Server running");
+    });
+  })
+  .catch(() => {
+    console.log("database connection failed");
+  });
